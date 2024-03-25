@@ -2,7 +2,7 @@ import { IconSearch2 } from '@/icons';
 
 export function SearchComponent({ onChange }) {
   return (
-    <search className='w-full flex justify-center items-center text-white font-light my-4 text-sm px-4'>
+    <search className='border-r border-l w-full flex justify-center items-center text-white font-light py-4 text-sm px-4'>
       <div className='relative flex items-center w-full '>
         <input
           type='text'

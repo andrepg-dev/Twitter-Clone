@@ -11,7 +11,7 @@ export const NavBar = ({ photo, name }) => {
 
   return (
     <nav
-      className={`flex justify-between px-4 h-[55px] shadow items-center sticky left-0 top-0 backdrop-blur z-20 transition duration-300 ${onScroll && '-translate-y-[55px]'
+      className={`md:w-[48rem] w-full flex justify-between px-4 h-[55px] shadow items-center sticky left-0 top-0 backdrop-blur z-20 transition duration-300 ${onScroll && '-translate-y-[55px]'
         }`}
       style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
     >

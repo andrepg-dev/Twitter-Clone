@@ -9,7 +9,7 @@ export default function HomeLayout({ children }) {
 
   const PageContent = ({ navBar, children }) => {
     return (
-      <main className='flex flex-col justify-between'>
+      <main className='flex flex-col justify-between items-center'>
         <Head>
           <title>Next.js</title>
         </Head>

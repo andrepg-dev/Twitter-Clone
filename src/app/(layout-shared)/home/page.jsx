@@ -6,7 +6,7 @@ function HomePage() {
   const { twios } = useTwios();
   
   return (
-    <article>
+    <article className='md:w-[48rem] '>
       {twios.map((twio) => (
         <Card twio={twio} key={twio.id} />
       ))}

@@ -130,69 +130,71 @@ export default function CreateTwio() {
   return !user ? (
     <LoginPage />
   ) : (
-    <main className='w-full min-h-[100svh] bg-black px-5 py-4 text-white flex flex-col gap-4'>
-      <div className='w-full flex justify-between'>
-        <Link href='/home'>
-          <IconArrowLeft
-            className={'w-[20px] h-[20px] text-white fill-white '}
-          />
-        </Link>
-
-        <button
-          className='p-1 px-4 rounded-full bg-primaryColor disabled:opacity-50'
-          onClick={handleSubmit}
-          disabled={isButtonDisabled} // Disable is textarea is empty
-        >
-          {state === COMPOSE_STATE.LOADING ? (
-            <TextLoading />
-          ) : (
-            <span>Postear</span>
-          )}
-        </button>
-      </div>
-
-      <section className='w-full min-h-28 flex gap-4 '>
-        <div className='w-[50px]'>
-          <Image
-            src={user.photo}
-            alt={`Avatar of ${user.name}`}
-            width={50}
-            height={50}
-            className='rounded-full'
-          />
-        </div>
-
-        <div className='w-full h-full flex flex-col gap-4'>
-          <span className='flex gap-1 text-sm text-primaryColor p-1 border rounded-full w-fit px-3 border-white/20'>
-            Todos <IconArrowDown className={'w-4 fill-primaryColor'} />
-          </span>
-          {/* Textarea */}
-          <textarea
-            ref={textareaRef}
-            className='resize-none w-full h-20 placeholder:text-gray-500 placeholder:text-xl bg-transparent outline-none'
-            placeholder='¡¿Qué está pasando?!'
-            autoFocus
-            onChange={(e) => setText(e.target.value)}
-          ></textarea>
-
-          {imageUrlPrev && (
-            <img
-              src={imageUrlPrev}
-              alt={`Image uploades of ${user.name}`}
-              className='rounded-lg aspect-auto'
+    <main className='w-full min-h-[100svh] flex justify-center gap-4 bg-black/5'>
+      <section className='md:w-[48rem] w-full flex flex-col gap-4 px-5 py-4 border-l border-r'>
+        <div className='flex justify-between'>
+          <Link href='/home'>
+            <IconArrowLeft
+              className={'w-[20px] h-[20px] text-black fill-black '}
             />
-          )}
-        </div>
-      </section>
+          </Link>
 
-      <span className='flex gap-2 text-primaryColor text-sm pb-3 border-b border-gray-500/30 items-center'>
-        <Globe2 width={16} height={16} />
-        <span>Cualquier persona puede responder</span>
-      </span>
-      <label className='flex items-center justify-center hover:bg-primaryColor/30 transition rounded-full w-8 h-8 -ml-[0.55rem] cursor-pointer'>
-        <IconImage className={'text-primaryColor'} width={'1.3em'} />
-        <input type='file' className='hidden' onChange={onUploadImage} />
-      </label>
+          <button
+            className='p-1 px-4 rounded-full bg-blue-500 text-white disabled:opacity-50'
+            onClick={handleSubmit}
+            disabled={isButtonDisabled} // Disable is textarea is empty
+          >
+            {state === COMPOSE_STATE.LOADING ? (
+              <TextLoading />
+            ) : (
+              <span>Postear</span>
+            )}
+          </button>
+        </div>
+
+        <section className='w-full min-h-28 flex gap-4 '>
+          <div className='w-[50px]'>
+            <Image
+              src={user.photo}
+              alt={`Avatar of ${user.name}`}
+              width={50}
+              height={50}
+              className='rounded-full'
+            />
+          </div>
+
+          <div className='w-full h-full flex flex-col gap-4'>
+            <span className='flex gap-1 text-sm text-blue-500 p-1 border rounded-full w-fit px-3 border-white/20'>
+              Todos <IconArrowDown className={'w-4 fill-blue-500'} />
+            </span>
+            {/* Textarea */}
+            <textarea
+              ref={textareaRef}
+              className='resize-none w-full h-32 md:h-20 placeholder:text-gray-500 placeholder:text-xl bg-transparent outline-none'
+              placeholder='¡¿Qué está pasando?!'
+              autoFocus
+              onChange={(e) => setText(e.target.value)}
+            ></textarea>
+
+            {imageUrlPrev && (
+              <img
+                src={imageUrlPrev}
+                alt={`Image uploades of ${user.name}`}
+                className='rounded-lg aspect-auto'
+              />
+            )}
+          </div>
+        </section>
+
+        <span className='flex gap-2 text-blue-500 text-sm pb-3 border-b border-gray-500/30 items-center'>
+          <Globe2 width={16} height={16} />
+          <span>Cualquier persona puede responder</span>
+        </span>
+        <label className='flex items-center justify-center hover:bg-blue-500/30 transition rounded-full w-8 h-8 -ml-[0.55rem] cursor-pointer'>
+          <IconImage className={'text-blue-500'} width={'1.3em'} />
+          <input type='file' className='hidden' onChange={onUploadImage} />
+        </label>
+      </section>
     </main>
   );
 }

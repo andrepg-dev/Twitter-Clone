@@ -44,7 +44,7 @@ export default function ExplorePage() {
   };
 
   return (
-    <main>
+    <main className='md:w-[48rem]'>
       <SearchComponent onChange={(e) => onSearchText(e.target.value)} />
 
       {results.map((twio) => (

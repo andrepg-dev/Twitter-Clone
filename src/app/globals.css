@@ -10,17 +10,16 @@
 
 html,
 body {
-  background-image: radial-gradient(
-    circle,
-    hsl(var(--background) / 1) 0%,
-    hsl(var(--background) / 0.8) 100%
-  );
+  background-image: radial-gradient(circle,
+      hsl(var(--background) / 1) 0%,
+      hsl(var(--background) / 0.8) 100%);
   background-position:
     0 0,
     25px 25px;
   background-size: 50px 50px;
   min-height: 100svh;
   height: 100%;
+  scrollbar-gutter: stable;
 }
 
 @layer base {
@@ -91,6 +90,7 @@ body {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
