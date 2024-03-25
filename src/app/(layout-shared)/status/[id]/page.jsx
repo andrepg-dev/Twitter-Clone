@@ -18,5 +18,5 @@ export default async function TwiosStatus({ params }) {
     return <WithOutResults />;
   }
 
-  return data ? <div className='md:w-[48rem]'><Card twio={data} redirect={false} /></div> : <LoadingPage />;
+  return data ? <div className='md:w-[48rem] w-full'><Card twio={data} redirect={false} /></div> : <LoadingPage />;
 }
