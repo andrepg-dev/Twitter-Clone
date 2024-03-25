@@ -1,10 +1,8 @@
-import { Form } from "@/components/react-components/form";
+import HomePage from "./(layout-shared)/home/page";
 
 export default function Home() {
 
   return (
-    <main className="w-full min-h-[100svh] flex items-center justify-center">
-      <Form />
-    </main>
+    <HomePage />
   );
 }

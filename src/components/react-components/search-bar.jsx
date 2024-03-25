@@ -7,7 +7,7 @@ export function SearchComponent({ onChange }) {
         <input
           type='text'
           placeholder='Buscar'
-          className='p-2 rounded-full px-5 pl-12 bg-[#202327] w-full'
+          className='p-2 rounded px-5 pl-12 bg-[#202327] w-full'
           onChange={onChange}
           autoFocus
         />

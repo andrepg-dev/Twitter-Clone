@@ -1,5 +1,6 @@
 'use client';
 
+import LoginPage from '@/app/login/page';
 import LoadingPage from '@/components/react-components/loading';
 import { AddTwio, UploadImage } from '@/firebase/client';
 import { useUser } from '@/hooks/useUser';
@@ -26,6 +27,8 @@ export default function CreateTwio() {
   const [file, setFile] = useState(null);
   // Datos de usuario
   const user = useUser();
+
+
   // Referencia al textarea
   const textareaRef = useRef(null);
   // Router
@@ -125,7 +128,7 @@ export default function CreateTwio() {
   const isButtonDisabled = !text.trim() || state === COMPOSE_STATE.LOADING;
 
   return !user ? (
-    <LoadingPage />
+    <LoginPage />
   ) : (
     <main className='w-full min-h-[100svh] bg-black px-5 py-4 text-white flex flex-col gap-4'>
       <div className='w-full flex justify-between'>

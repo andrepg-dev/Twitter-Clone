@@ -9,6 +9,11 @@ export default function ExplorePage() {
   const [results, setResults] = useState([]);
   const [searchText, setSearchText] = useState('');
 
+  // Execute search when the page is loaded
+  useEffect(() => {
+    handleSearch(searchText);
+  }, [])
+
   useEffect(() => {
     // Search after 500ms
     const delaySearch = setTimeout(() => {
@@ -19,9 +24,9 @@ export default function ExplorePage() {
     return () => clearTimeout(delaySearch);
   }, [searchText]);
 
+
   const handleSearch = (value) => {
     const text = value.toLowerCase();
-    if (!text) return setResults([]);
     const result = [];
 
     for (const twio of twios) {
