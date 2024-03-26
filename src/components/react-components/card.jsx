@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import { useRef, useState } from 'react';
 import { CardFooter } from './card-footer';
 
-export const Card = ({ twio, redirect = true }) => {
+export const Card = ({ twio, redirect = true, ZoomToImage = false }) => {
   const time = useTimeAgo(twio.timestamp);
   const refImg = useRef(null);
   const [isZoom, setIsZoom] = useState(false);
@@ -19,20 +19,9 @@ export const Card = ({ twio, redirect = true }) => {
   };
 
   const handleZoomImage = () => {
-    setIsZoom(!isZoom);
-    const classList = [
-      'fixed',
-      'top-0',
-      'left-0',
-      'w-full',
-      'z-50',
-      'rounded-none',
-    ];
-
-    if (isZoom) {
-      return refImg.current.classList.add(...classList);
+    if (ZoomToImage) {
+      setIsZoom(!isZoom);
     }
-    return refImg.current.classList.remove(...classList);
   };
 
   return (
@@ -103,6 +92,25 @@ export const Card = ({ twio, redirect = true }) => {
               )}
             </p>
           </div>
+
+          {/* Open image */}
+          <div className={`w-screen fixed h-[100svh] inset-0 z-50 flex justify-center md:-left-2 ${isZoom ? 'visible' : 'invisible'}`}>
+            <div className={`w-full md:w-[48rem] bg-black/30 backdrop-blur flex items-center relative justify-center ${isZoom ? 'visible' : 'invisible'}`} onClick={handleZoomImage}>
+              <button className='absolute top-4 right-4 border p-2 rounded-lg bg-red-500 text-white z-50' onClick={handleZoomImage}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="m15 9-6 6" /><path d="m9 9 6 6" /></svg>
+              </button>
+
+              <img
+                src={twio.tweetimg}
+                alt={`Image uploades of ${twio.name}`}
+                className='rounded-lg aspect-auto max-w-[90%]'
+                ref={refImg}
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
+          </div>
+
+
           {/* Footer */}
           <CardFooter
             analitics={twio.data.analitics}
