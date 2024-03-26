@@ -18,7 +18,7 @@ export default function UserHomePage({ params }) {
   }, []);
 
   return (
-    <article>
+    <article className='w-full md:w-[48rem]'>
       {/* Inicio */}
       {twios.map((twio) => (
         <Card twio={twio} key={twio.id} redirect={false} />
