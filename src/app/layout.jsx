@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Twios - Next.js',
-  description: 'Clon de Twitter creado con Next.js creado por @andreponce. Proyecto de código abierto.',
+  description: 'Clon de Twitter creado por @andreponce. Proyecto de código abierto.',
 };
 
 export default function RootLayout({ children }) {
