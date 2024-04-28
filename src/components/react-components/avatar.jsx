@@ -6,7 +6,7 @@ export const Avatar = () => {
 
   return (
     <section className='w-full ronded-xl p-1 flex items-center gap-2'>
-      <Image
+      <img
         src={photo}
         alt={`Avatar of ${name}`}
         width={40}

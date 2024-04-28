@@ -27,7 +27,7 @@ export const Card = ({ twio, redirect = true, ZoomToImage = false }) => {
   return (
     <section className='flex gap-3 p-2 px-4 border hover:bg-slate-600/5 group'>
       <div className='h-full flex pt-2 min-w-[32px]'>
-        <Image
+        <img
           src={twio.photo}
           width={32}
           height={32}

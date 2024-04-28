@@ -154,7 +154,7 @@ export default function CreateTwio() {
 
         <section className='w-full min-h-28 flex gap-4 '>
           <div className='w-[50px]'>
-            <Image
+            <img
               src={user.photo}
               alt={`Avatar of ${user.name}`}
               width={50}
